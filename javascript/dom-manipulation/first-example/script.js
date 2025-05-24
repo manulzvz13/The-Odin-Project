@@ -25,3 +25,21 @@ contentTwo.appendChild(headOne);
 contentTwo.appendChild(paraTwo);
 container.appendChild(contentTwo);
 
+// 2nd method the JavaScript file
+// const btn = document.querySelector("#btn");
+// btn.onclick = () => alert("Hello World");
+
+// third method the JavaScript file
+const btn = document.querySelector("#btn");
+// btn.addEventListener("click", () => {
+//   alert("Hello World");
+// });
+// btn.addEventListener("click", function (e) {
+//   console.log(e.target);
+// });
+btn.addEventListener("click", function (e) {
+  e.target.style.background = "blue";
+});
+
+
+
