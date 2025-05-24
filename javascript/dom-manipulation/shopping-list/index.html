@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping list example</title>
     <style>
       li {
@@ -17,35 +17,46 @@
     </style>
   </head>
   <body>
-
     <h1>My shopping list</h1>
 
     <div>
       <label for="item">Enter a new item:</label>
-      <input type="text" name="item" id="item">
+      <input type="text" name="item" id="item" />
       <button>Add item</button>
     </div>
 
-    <ul>
-
-    </ul>
+    <ul></ul>
 
     <script>
+      // Variables holding references to ul, input and button
+      const list = document.querySelector("ul");
+      const inputBar = document.querySelector("input");
+      const btn = document.querySelector("button");
 
-        // Variables holding references to ul, input and button
-        const list = document.querySelector("ul");
-        const inputBar = document.querySelector("input");
-        const btn = document.querySelector("button");
+      btn.addEventListener("click", function () {
 
-        btn.addEventListener("click", function () {
-            let inputValue = inputBar.value;
-            inputBar.value = "";
-            const listItem = document.createElement("li");
-            const spanItem = document.createElement("span");
-            const btnItem = document.createElement("button");
+        let inputValue = inputBar.value;
+        inputBar.value = "";
 
+        const listItem = document.createElement("li");
+        const spanItem = document.createElement("span");
+        const btnItem = document.createElement("button");
 
+        listItem.appendChild(spanItem);
+        listItem.appendChild(btnItem);
+        (spanItem.textContent = inputValue), (btnItem.textContent = "Delete");
+        list.appendChild(listItem);
+
+        btnItem.addEventListener("click", function () {
+            list.removeChild(listItem);
         });
+
+        inputBar.focus();
+
+      });
+
+      
+
 
     </script>
   </body>
